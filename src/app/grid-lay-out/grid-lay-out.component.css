@@ -1,0 +1,12 @@
+[class*="col"] {
+    background-color: turquoise;
+    font-size: large;
+}
+.check{
+    width: 30px;
+    height: 30px;
+    accent-color: green;
+}
+input[type=number]{
+    width: 50px;
+}

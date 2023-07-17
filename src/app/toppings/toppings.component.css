@@ -1,0 +1,9 @@
+[class*="col"] {
+    background-color: lightblue;
+    font-size: large;
+}
+.check{
+    width: 30px;
+    height: 30px;
+    accent-color: green;
+}

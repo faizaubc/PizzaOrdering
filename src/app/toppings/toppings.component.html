@@ -1,0 +1,9 @@
+<div class="row justify-content-md-center">
+    <div class="col" style="height: 50px;">
+        {{toppingName}}
+    </div>  
+    <div class="col" *ngFor="let object of listOfToppingsIds">
+        <input  id={{object.id}} class="check" type="checkbox" (click)="sendCheckedId(object.id)">
+    </div>  
+     
+</div>

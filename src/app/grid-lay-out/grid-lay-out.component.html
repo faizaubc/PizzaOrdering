@@ -1,0 +1,123 @@
+<h1 class="d-flex justify-content-center">Pizza Ordering Screen</h1>
+<br/>
+
+<div class="container">
+    <div class="row justify-content-md-center">
+        <div class="col">
+            Toppings
+        </div>      
+        <div class="col">
+           Pizza Size
+        </div>
+    </div>
+
+    <div class="row justify-content-md-center">
+        <div class="col">
+        </div>
+        <div class="col">
+           Small ($5)
+        </div>
+        <div class="col">
+            Medium ($7)
+        </div>
+        <div class="col">
+            Large ($8)
+        </div>
+        <div class="col">
+            Extra Large ($9)
+        </div>
+    </div>
+
+    <div class="row justify-content-md-center">
+        <div class="col-12" style="height: 30px;">
+            Veg Toppings
+        </div>       
+    </div>
+
+    <app-toppings 
+        *ngFor="let topping of toppingsListVeggies"
+        [id]="topping.id"
+        [toppingName]="topping.name"  
+        (totalsEvent)="receiveClickedCheckBoxId($event)"  
+    >
+    </app-toppings>
+
+    <div class="row justify-content-md-center">
+        <div class="col-12" style="height: 30px;">
+           Non Veg Toppings
+        </div>       
+    </div>
+
+    
+    <app-toppings 
+        *ngFor="let topping of toppingsListNonVeggies"
+        [id]="topping.id"
+        [toppingName]="topping.name" 
+        (totalsEvent)="receiveClickedCheckBoxId($event)"   
+    >
+    </app-toppings>
+
+    <div class="row justify-content-md-center">
+        <div class="col" style="height: 30px;">
+           Total
+        </div>       
+    </div>
+
+    <div class="row justify-content-md-center">
+        <div class="col" style="height: 30px;">
+           Offer
+        </div>
+        <div class="col" style="height: 30px; ">
+            
+        </div>   
+         <div class="col" style="height: 30px;">
+            <div *ngIf="this.offers['Offer1'].visible==true">
+            {{this.offers['Offer1'].id}}
+            </div>
+            <div *ngIf="this.offers['Offer2'].visible==true">
+                {{this.offers['Offer2'].id}}
+            </div>
+         </div>   
+         <div class="col" style="height: 30px; " >
+            <div *ngIf="this.offers['Offer3'].visible==true">
+            {{this.offers['Offer3'].id}}
+            </div>
+         </div>  
+         <div class="col" style="height: 30px;">
+            
+         </div>           
+    </div>
+
+    <div class="row justify-content-md-center">
+        <div class="col" style="height: 30px;">
+           Quantity
+        </div>
+        <div class="col" style="height: 30px;" *ngFor="let id of listOfQuantities">
+            <input type="number" min="0" id={{id.id}} value="1" (change)="calculateTotalPriceForEachPizza()">
+         </div>   
+                
+    </div>
+
+    <div class="row justify-content-md-center">
+        <div class="col" style="height: 40px;">
+           Totals
+        </div>
+        <div class="col" style="height: 40px;">
+            ${{totalsDisplayObject.totalSmallPizza.toFixed(2)}}
+         </div>   
+         <div class="col" style="height: 40px;">
+            ${{totalsDisplayObject.totalMediumPizza.toFixed(2)}}
+         </div>   
+         <div class="col" style="height: 40px;">
+            ${{totalsDisplayObject.totalLargePizza.toFixed(2)}}
+         </div>  
+         <div class="col" style="height: 40px;">
+            ${{totalsDisplayObject.totalExtraLargePizza.toFixed(2)}}
+         </div>           
+    </div>
+
+    
+
+
+</div>
+
